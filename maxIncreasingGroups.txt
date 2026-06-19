@@ -1,0 +1,20 @@
+def maxIncreasingGroups(usageLimits):
+    usageLimits.sort()
+
+    groups = 0
+    total = 0
+
+    for x in usageLimits:
+        total += x
+
+        if total >= (groups + 1) * (groups + 2) // 2:
+            groups += 1
+
+    return groups
+
+
+# Input
+usageLimits = list(map(int, input().split()))
+
+# Output
+print(maxIncreasingGroups(usageLimits))
